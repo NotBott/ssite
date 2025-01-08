@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Product Detail Page
+{% endblock %}
+
+{% load static %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{% static 'style_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-b">
+
+
+
+        <!-- Image Section -->
+        <div class="image-section">
+            <img src="{{ product.preview.url }}" alt="Main Product" class="main-image" id="mainImage">
+            <div class="thumbnail-gallery">
+                {% for productimage in productimages %}
+                    <img src="{{ productimage.image.url }}" alt="" onclick="changeImage(this)">
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <!-- Description Section -->
+        <div class="description-section">
+            <h1>{{ product.name }}</h1>
+            <p>{{ product.full_description }}</p>
+            <p><h2>Цена: {{ product.price }}</h2></p>
+            <div class="action-buttons">
+                {% if is_favorite %}
+                <a href="{% url 'Favorites_remove' product.pk %}"><button class="wishlist-btn">Удалить из избранное</button></a>
+                {% else %}
+                <a href="{% url 'Favorites_add' product.pk %}"><button class="wishlist-btn">Добавить в избранное</button></a>
+                {% endif %}
+                <a href="{% url 'basket_add' product.pk %}"><button class="cart-btn">Добавить в корзину</button></a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- Comments Section -->
+    <div class="comments-section">
+        {% for comment in comments%}
+        <h2>Comments</h2>
+        <div class="comment">
+            <div class="author">{{ comment.author.username }}</div>
+            <div class="author">{{ comment.created_at }}</div>
+            <div class="author">{% for i in comment.stars %}⭐{% endfor %}</div>
+            <div class="text">{{ comment.text }}</div>
+        </div>
+        {% endfor %}
+
+
+        {% if request.user.is_authenticated %}
+        <form action="" method="post">
+            {% if form.errors %}
+                <div class="form-errors">
+                    {{ form.errors }}
+                </div>
+            {% endif %}
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-dark mt-4">Отправить</button>
+        </form>
+        {% endif %}
+    </div>
+
+    <script>
+        function changeImage(thumbnail) {
+            const mainImage = document.getElementById('mainImage');
+            const tempSrc = mainImage.src;
+            mainImage.src = thumbnail.src;
+            thumbnail.src = tempSrc;
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,342 @@
+body.a {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    width: 300px;
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 93%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline-block;
+    padding: 15px;
+    position: relative;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+.category-item {
+    display: inline-flex;
+    align-items: center;
+}
+
+.category-item .arrow {
+    margin-left: 5px; /* Отступ между текстом и стрелкой */
+    font-size: 16px;
+    color: #333;
+    cursor: pointer; /* Меняем курсор на "кликающую руку" */
+    line-height: 1;
+}
+
+.category-item .arrow:hover {
+    color: #555; /* Меняем цвет стрелки при наведении */
+}
+
+
+
+
+
+.products {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+
+.product-card {
+    width: 250px;
+    margin: 10px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+
+
+
+
+
+/* Контейнер для карточек */
+main {
+    display: flex;
+    flex-wrap: wrap; /* Чтобы карточки переходили на новую строку при необходимости */
+    gap: 20px; /* Расстояние между карточками */
+    justify-content: flex-start; /* Выравнивание по началу */
+}
+
+/* Карточки */
+.products {
+    flex: 1 1 250px; /* Карточки будут занимать минимальную ширину 250px, могут расширяться */
+    max-width: 300px; /* Ограничение максимальной ширины карточки */
+}
+
+.product-card {
+    border: 1px solid #ccc; /* Добавим рамку для карточек */
+    padding: 15px;
+    text-align: center;
+}
+
+.product-card h3 {
+    margin-bottom: 10px;
+}
+
+/* Устанавливаем одинаковые размеры для изображений */
+.product-card img {
+    width: 255px; /* Фиксированная ширина изображения */
+    height: 255px; /* Фиксированная высота изображения */
+    object-fit: cover; /* Чтобы изображение не искажалось и заполнило блок */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.products a {
+    text-decoration: none;
+    color: #333;
+}
+
+.product-card h3 {
+    margin-bottom: 10px;
+}
+
+
+
+
+.subcategories {
+    display: block;  /* Устанавливаем display:block, чтобы элемент был видимым для анимации */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;  /* Абсолютное позиционирование для вывода вниз */
+    left: 0;
+    top: 100%;  /* Позиционируем подкатегории ниже родительского элемента */
+    opacity: 0;  /* Изначально прозрачны */
+    max-height: 0;  /* Начальная высота 0 */
+    overflow: hidden;  /* Скрываем содержимое, которое выходит за пределы */
+    background-color: #fff;  /* Белый фон для подкатегорий */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Легкая тень для подкатегорий */
+    border-radius: 5px;  /* Сглаженные углы */
+    z-index: 1;  /* Убедитесь, что подкатегории не будут перекрывать другие элементы */
+    transition: opacity 0.3s ease, max-height 0.3s ease-in-out;  /* Анимация для прозрачности и высоты */
+}
+
+.subcategories.active {
+    opacity: 1;  /* Делает подкатегории видимыми */
+    max-height: 500px;  /* Устанавливаем максимальную высоту для раскрытия */
+}
+
+.category-item {
+    position: relative;  /* Чтобы подкатегории позиционировались относительно родителя */
+}
+
+.category-item .arrow {
+    margin-left: 5px;  /* Отступ между текстом и стрелкой */
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;  /* Меняем курсор на "кликающую руку" */
+    line-height: 1;
+}
+
+.category-item .arrow:hover {
+    color: #555;  /* Меняем цвет стрелки при наведении */
+}
+
+
+
+
+
+
+
+
+
+        .container-b {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px auto;
+            max-width: 1200px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-section {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .main-image {
+            width: 600px;
+            height: 600px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .thumbnail-gallery {
+            display: flex;
+            gap: 10px;
+        }
+
+        .thumbnail-gallery img {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .thumbnail-gallery img:hover {
+            transform: scale(1.1);
+            border-color: #007BFF;
+        }
+
+        .description-section {
+            flex: 1;
+            max-width: 50%;
+            padding-left: 20px;
+        }
+
+        .description-section h1 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .description-section p {
+            margin-bottom: 20px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .action-buttons button {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .wishlist-btn {
+            background-color: #ff80b0;
+            color: #fff;
+        }
+        
+        .wishlist-btn {
+            background-color: #ff80b0;
+            color: #fff;
+        }
+
+        .wishlist-btn:hover {
+            background-color: #ff5c98;
+        }
+
+        .cart-btn {
+            background-color: #ffd500;
+            color: #333;
+        }
+
+        .cart-btn:hover {
+            background-color: #ffc107;
+        }
+
+        .comments-section {
+            margin-top: 40px;
+            padding-left: 100px;
+            width: 90%;
+        }
+
+        .comment {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .comment .author {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }

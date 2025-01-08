@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Категории
+{% endblock %}
+
+{% block content %}
+    <main>
+
+        {% for product in products %}
+        <section class="products">
+            <a href="{% url 'detail' product.pk %}">
+            <div class="product-card">
+                <img src="{{product.preview.url}}" alt="" width="255" height="255">
+                <h3><b>{{ product.name }}</b></h3>
+                <p><b>Категория:</b> {{product.category}}</p>
+                <p><b>Цена:</b> {{product.price}}</p>
+            </div>
+            </a>
+        </section>
+        {% endfor %}
+
+
+    </main>
+{% endblock %}

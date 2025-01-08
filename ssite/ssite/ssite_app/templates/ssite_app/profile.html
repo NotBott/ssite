@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Ssite
+{% endblock %}
+
+{% block extra_styles %}
+<style>
+        .logout-link {
+            position: absolute;
+            top: 60px;
+            left: 1800px;
+            background-color: red;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .adm-link {
+            position: absolute;
+            top: 60px;
+            left: 1708px;
+            background-color: blue;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .logout-link:hover {
+            background-color: darkred;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <main>
+        {% if user.is_superuser %}
+        <a href="{% url 'admin:index' %}" class="adm-link">Админ</a>
+        {% endif %}
+        <a href="{% url 'logout' %}" class="logout-link">Выйти</a>
+
+        {% for basket in baskets %}
+        <section class="products">
+            <a href="{% url 'detail' basket.product.pk %}">
+            <div class="product-card">
+                <img src="{{basket.product.preview.url}}" alt="" width="255" height="255">
+                <h3><b>{{ basket.product.name }}</b></h3>
+                <p><b>Категория:</b> {{basket.product.category}}</p>
+                <a href="{% url 'basket_quantity_plus' basket.product.pk %}"><p><b>+</b></p></a>
+                <p><b>Количество:</b> {{basket.quantity}}</p>
+                <a href="{% url 'basket_quantity_minus' basket.product.pk %}"><p><b>-</b></p></a>
+                <p><b>Цена:</b> {{basket.product.price}}</p>
+                <p><b>общая цена:</b> {{ basket.sum }}</p>
+                <a href="{% url 'basket_remove' basket.pk %}"><p><b style="background-color: red">Удалить</b></p></a>
+            </div>
+            </a>
+        </section>
+        {% endfor %}
+        <h1>Итого: {{ total_sum }}</h1>
+    </main>
+{% endif %}
+{% endblock %}

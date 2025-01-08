@@ -1,0 +1,40 @@
+    <header>
+<nav>
+    <ul>
+        <li><a href="{% url 'index' %}"><b><h3>Главная</h3></b></a></li>
+
+        <li class="category-item">
+            <a href=""><b><h3>Категории</h3></b></a>
+            <h3 class="arrow category-link">▼</h3>
+            <ul class="subcategories">
+                {% for category in categories %}
+                    <li><a href="{% url 'categories' category.pk %}">{{ category }}</a></li>
+                {% endfor %}
+            </ul>
+
+        </li>
+
+        <li><a href="{% url 'favourites' %}"><b><h3>Избранное</h3></b></a></li>
+
+        {% if user.is_authenticated %}
+
+        <li><a href="{% url 'profile' %}"><b><h3>Профиль</h3></b></a></li>
+
+        {% else %}
+
+        <li><a href="{% url 'login' %}"><b><h3>Войти</h3></b></a></li>
+
+        {% endif %}
+
+        <li>
+            <form role="search" action="{% url 'search' %}">
+                    <input name="q" class="form-control me-2" type="search" placeholder="Поиск..." aria-label="Search">
+                    <button type="submit">Поиск</button>
+            </form>
+        </li>
+    </ul>
+</nav>
+
+
+
+    </header>

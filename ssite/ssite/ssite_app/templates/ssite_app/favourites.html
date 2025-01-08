@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Избранное
+{% endblock %}
+
+{% block content %}
+    <main>
+
+        {% for favorite  in favorites %}
+        <section class="products">
+            <a href="{% url 'detail' favorite.product.pk %}">
+            <div class="product-card">
+                <img src="{{favorite.product.preview.url}}" alt="" width="255" height="255">
+                <h3><b>{{ favorite.product.name }}</b></h3>
+                <p><b>Категория:</b> {{favorite.product.category}}</p>
+                <p><b>Цена:</b> {{favorite.product.price}}</p>
+                <a href="{% url 'Favorites_remove' favorite.product.pk %}"><p><b style="background-color: red">Удалить</b></p></a>
+            </div>
+            </a>
+        </section>
+        {% endfor %}
+
+
+    </main>
+{% endblock %}
