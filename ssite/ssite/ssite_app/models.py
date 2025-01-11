@@ -101,7 +101,7 @@ class UserVisit(models.Model):
     visit_count = models.PositiveIntegerField(default=0, verbose_name='Количество посещений')
 
     def __str__(self):
-        return f'Пользователь {self.user.id} | Продукт: {self.category.name}'
+        return f'Пользователь {self.user.id} | Категория: {self.category.name}'
 
     class Meta:
         verbose_name = 'Посещение пользователя'
