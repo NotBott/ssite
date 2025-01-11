@@ -211,6 +211,9 @@ def basket_quantity_m(request, pk):
     basket.quantity -= 1
     basket.save()
 
+    if basket.quantity == 0:
+        basket.delete()
+
     return redirect(request.META.get('HTTP_REFERER', '/'))
 
 
