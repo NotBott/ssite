@@ -243,11 +243,11 @@ def Favorites_remove(request, pk):
 
 
 def search(request):
-    query = request.GET.get('q', '')  # Получение строки поиска
+    query = request.GET.get('q', '')
     products = []
     if query:
-        products = models.Product.objects.filter(name__icontains=query)  # Поиск по подстроке
+        products = models.Product.objects.filter(name__icontains=query)
     context = {
-        'products': products,  # Передаем правильное имя переменной
+        'products': products,
     }
     return render(request, 'ssite_app/search_results.html', context)
